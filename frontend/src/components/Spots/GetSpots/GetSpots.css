@@ -1,0 +1,73 @@
+.all-spots-wrap {
+    display: flex;
+    /* justify-content: center; */
+    width: 100%;
+    height: 100%;
+}
+
+.all-spots-homepage-container {
+    display: flex;
+    /* grid-template-columns: repeat(5, 1fr); */
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-width: 93%;
+    /* max-width: 1020px; */ /*SAVE FOR THE BODY*/
+    height: 100%;
+    margin: auto;
+    row-gap: 25px;
+    column-gap: 25px;
+    margin-top: 150px;
+    margin-bottom: 70px;
+    /* box-sizing: border-box; */
+}
+
+/* @media screen and (max-width: 1024px) {
+    .all-spots-wrap {
+        --num-cols: 2;
+        --row-height: 200px;
+    }
+} */
+
+.spot-card {
+    border-radius: 5%;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    font-size: 10px;
+    /* width: max-content; */
+    /* max-width: 200px; */
+    /* height: max-content; */
+    /* max-height: 200px; */
+    box-sizing: border-box;
+    object-fit: cover;
+}
+
+.spot-card:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.7);
+}
+
+.spot-description-container {
+    text-decoration: none;
+    color: black;
+    margin-top: 11px;
+    margin-left: 5px;
+    font-size: 16px;
+    /* font-size: 15px; */
+    display: flex;
+    width: 400px;
+}
+
+#spot-description-left {
+    width: 50%;
+}
+
+#spot-description-right {
+    width: 50%;
+    text-align: end;
+    margin-right: 15px;
+    /* justify-content: right; */
+    /* align-items: right;
+    display: grid; */
+}

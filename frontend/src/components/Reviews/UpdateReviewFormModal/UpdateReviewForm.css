@@ -1,0 +1,84 @@
+.update-review-button-in-modal {
+    color: white;
+    background-color: rgba(48, 113, 66, 0.898);
+    border-radius: 13px;
+    width: 125px;
+    height: 40px;
+    margin-right: 20px;
+}
+
+.update-review-button-in-modal:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.7)
+}
+
+.update-review-form {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+}
+
+#update-review-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 28px;
+    color: rgb(118, 118, 118);
+    margin-bottom: 10px;
+}
+
+#update-review-input-title {
+    margin-left: 4px;
+    margin-bottom: 2px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+#update-review-input-1 {
+    padding: 4px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    height: 100px;
+    font-size: 20px;
+    font-family:    Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+
+}
+
+#update-review-input-2 {
+    padding: 4px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    height: 35px;
+    font-size: 20px;
+}
+
+
+#update-review-input-1:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    background-color: rgb(212, 223, 215)
+}
+
+#update-review-input-2:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    background-color: rgb(212, 223, 215)
+}
+
+#update-review-submit {
+    color: white;
+    background-color: rgb(90, 131, 103);
+    height: 60px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+#update-review-submit:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 1.2);
+}
+
+.update-review-errors {
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    margin-bottom: 20px;
+}

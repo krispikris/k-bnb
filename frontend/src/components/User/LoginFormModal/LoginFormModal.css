@@ -1,0 +1,110 @@
+#login-button-in-modal {
+    color: white;
+    background-color: rgba(48, 113, 66, 0.898);
+    border-radius: 15px;
+    width: 95px;
+    height: 40px;
+    /* margin-left: 20px; */
+}
+
+#login-button-in-modal:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.7)
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+}
+
+#login-form-inputs {
+    padding: 4px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    height: 35px;
+    font-size: 20px;
+}
+
+#login-form-inputs:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    background-color: rgb(212, 223, 215)
+}
+
+.login-submit-button {
+    color: white;
+    background-color: rgb(90, 131, 103);
+    height: 60px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.login-submit-button:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 1.2);
+}
+
+.demo-login-submit-button {
+    color: white;
+    background-color: rgb(90, 131, 103);
+    height: 60px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.demo-login-submit-button:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 1.2);
+}
+
+#login-form-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 28px;
+    color: rgb(118, 118, 118);
+}
+
+#welcome-back-to-treebnb-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 30px;
+    color: green;
+}
+
+#login-input-title {
+    margin-left: 4px;
+    margin-bottom: 2px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.login-errors {
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    margin-bottom: 20px;
+}
+
+/* .login-modal { */
+    /* background-color: black; */
+    /* width: 300px;
+    height: 100px;
+    border-radius: 5%; */
+    /* display: flex;
+    flex-direction: column; */
+    /* box-shadow: ; */
+/* } */
+
+
+
+
+/* #form {
+    background-color: #ff0000;
+    border: black 3px;
+} */

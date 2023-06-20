@@ -1,0 +1,110 @@
+.dropdown-button {
+    color: white;
+    background-color: rgba(48, 113, 66, 0.898);
+    border-radius: 13px;
+    width: 55px;
+    height: 40px;
+    /* margin-left: 17px; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.dropdown-button:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.7);
+}
+
+.profile-dropdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    height: 130px;
+    width: 420px;
+    border: #1a6921c7 1px solid;
+    border-radius: 12px;
+    position: absolute;
+    margin-top: 15px;
+    right: 70px;
+    padding: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 1);
+}
+
+.profile-dropdown:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 3);
+}
+
+#profile-dropdown-1 {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: rgb(118, 118, 118);
+    font-size: 22px;
+    /* padding-left: 10px; */
+}
+#profile-dropdown-2 {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: green;
+    font-size: 20px;
+    margin-left: 3px;
+
+    /* padding-left: 10px; */
+}
+#profile-dropdown-3 {
+    display: flex;
+    align-items: center;
+    font-style: italic;
+    color: green;
+    font-size: 20px;
+    margin-left: 3px;
+    /* padding-left: 10px; */
+}
+
+#profile-logout-button {
+    color: white;
+    background-color: rgba(48, 113, 66, 0.898);
+    border-radius: 5px;
+    height: 35px;
+    width: 75px;
+    font-size: 15px;
+}
+
+#profile-logout-button:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 3);
+}
+/* #profile-dropdown-2 {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+#profile-dropdown-3 {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+#profile-dropdown-4 {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+#profile-dropdown-1:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+#profile-dropdown-2:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+#profile-dropdown-3:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+#profile-dropdown-4:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+} */

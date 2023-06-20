@@ -1,0 +1,163 @@
+.full-spot-page-wrap {
+    margin-left: 105px;
+    margin-right: 105px;
+    margin-top: 130px;
+    margin-bottom: 105px;
+}
+
+#spot-title {
+    font-size: 30px;
+    color: green;
+}
+
+.spot-detail-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    width: 40%;
+    font-size: 12px;
+}
+
+.image-for-spot-id {
+    border-radius: 5%;
+    width: 70%;
+    height: 70%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    /* width: max-content; */
+    /* max-width: 200px; */
+    /* height: max-content; */
+    /* max-height: 200px; */
+    box-sizing: border-box;
+
+}
+
+.spot-images-grid {
+    --gap: 8px;
+    --num-cols: 4;
+    --row-height: 300px;
+
+    box-sizing: border-box;
+    padding: var(--gap);
+
+    display: grid;
+    grid-template-columns: repeat(var(--num-cols), 1fr);
+    grid-auto-rows: var(--row-height);
+    gap: var(--gap);
+    padding-top: 10px;
+    /* padding-left: 44px;
+    padding-right: 44px; */
+    border-radius: 17px;
+    /* margin-top: 85px; */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+    margin-bottom: 12px;
+}
+
+.spot-images-grid > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3%;
+}
+
+.spot-images-grid-col-2 {
+    grid-column: span 2;
+}
+
+.spot-images-grid-row-2 {
+    grid-row: span 2;
+}
+
+/* ANYTHING UNDER 1024PX */
+@media screen and (max-width: 1024px) {
+    .spot-images-grid {
+        --num-cols: 2;
+        --row-height: 200px;
+    }
+}
+
+.spot-detail-info-container {
+    border: 1px rgb(198, 198, 198) solid;
+    border-radius: 15px;
+    width: 50%;
+    height: 100%;
+    /* margin-left: 10px;
+    margin-right: 10px; */
+    display: grid;
+    padding: 20px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+.reviews-container {
+    border: 1px rgb(198, 198, 198) solid;
+    border-radius: 15px;
+    width: 50%;
+    height: 100%;
+    margin-left: 10px;
+    /* margin-right: 10px; */
+    display: grid;
+    padding: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+.double-card {
+    display: flex;
+}
+
+.reviews-of-spot {
+    padding: 20px;
+    margin-top: -43px;
+    display: flex;
+    flex-direction: column;
+}
+
+#title-header-1 {
+    font-size: 25px;
+    color: green;
+    font-weight: bold;
+    margin-top: -0.5px;
+    width: 70%;
+}
+
+#title-header-2 {
+    font-size: 25px;
+    color: green;
+    font-weight: bold;
+    width: 50%;
+}
+
+#review-writer {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.individual-review-container {
+    margin-bottom: 20px;
+}
+
+#review-after {
+    margin-bottom: 10px;
+}
+
+#spot-detail-description {
+    font-size: 18px;
+}
+
+.review-buttons {
+    margin-bottom: 15px;
+    margin-top: -15px;
+}
+
+#spot-detail-info {
+    display: flex;
+}
+
+#title-price {
+    margin-top: -0.2px;
+    margin-right: 5px;
+    padding-top: 5px;
+}

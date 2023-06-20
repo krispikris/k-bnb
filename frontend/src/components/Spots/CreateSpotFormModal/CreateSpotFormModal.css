@@ -1,0 +1,77 @@
+.create-spot-button-in-modal {
+    color: white;
+    background-color: rgba(48, 113, 66, 0.898);
+    border-radius: 13px;
+    width: 125px;
+    height: 40px;
+    margin-right: 20px;
+}
+
+.create-spot-button-in-modal:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.7)
+}
+
+.create-new-spot-form {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+}
+
+#become-a-host-form-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 28px;
+    color: rgb(118, 118, 118);
+}
+
+#welcome-back-to-treebnb-host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 30px;
+    color: green;
+}
+
+#host-input-title {
+    margin-left: 4px;
+    margin-bottom: 2px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+#host-form-inputs {
+    padding: 4px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    height: 35px;
+    font-size: 20px;
+}
+
+#host-form-inputs:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    background-color: rgb(212, 223, 215)
+}
+
+.host-submit-button {
+    color: white;
+    background-color: rgb(90, 131, 103);
+    height: 60px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.host-submit-button:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 1.2);
+}
+
+.create-spot-errors {
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    margin-bottom: 20px;
+}

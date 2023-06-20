@@ -1,0 +1,55 @@
+USERS
+One-to-Many (3x)
+User.hasMany(models.Spot,               { foreignKey: 'ownerId' })
+User.hasMany(models.Review,             { foreignKey: 'userId' })
+User.hasMany(models.Booking             { foreignKey: 'userId' })
+
+// WRONG
+Many-to-Many
+User.belongsToMany(models.Spot,         { through: models.Booking })
+
+SPOTS
+One-to-Many (4x)
+Spot.belongsTo(models.User,             { foreignKey: 'ownerId' })
+Spot.hasMany(models.SpotImage,          { foreignKey: 'spotId' })
+Spot.hasMany(models.Review,             { foreignKey: 'spotId' })
+Spot.hasMany(models.Booking             { foreignKey: 'spotId })
+
+// WRONG
+Many-to-Many
+Spot.belongsToMany(models.User,         { through: models.Booking })
+
+SPOT IMAGES
+One-to-Many
+SpotImage.belongsTo(models.Spot,        { foreignKey: 'spotId' })
+
+REVIEWS
+One-to-Many (3x)
+Review.belongsTo(models.User,           { foreignKey: 'userId' })
+Review.belongsTo(models.Spot,           { foreignKey: 'spotId' })
+Review.hasMany(models.ReviewImage,      { foreignKey: 'reviewId' })
+
+REVIEW IMAGES
+One-to-Many
+ReviewImage.belongsTo(models.Review,   { foreignKey: 'reviewId' })
+
+BOOKINGS
+One-to-Many (2x)
+Booking.belongsTo(models.User,          { foreignKey: 'userId' })
+Booking.belongsTo(models.Spot,          { foreignKey: 'spotId' })
+
+SYNTAX
+SPOT
+npx sequelize model:generate --name Spot --attributes ownerId:integer,address:string,city:string,state:string,country:string,lat:decimal,lng:decimal,name:string,description:string,price:decimal
+
+SPOT IMAGE
+npx sequelize model:generate --name SpotReview --attributes spotId:integer,url:string,preview:boolean
+
+REVIEW
+npx sequelize model:generate --name Review --attributes spotId:integer,userId:integer,review:string,stars:integer
+
+REVIEW IMAGE
+npx sequelize model:generate --name ReviewImage --attributes reviewId:integer,url:string
+
+BOOKING
+npx sequelize model:generate --name Booking --attributes spotId:integer,userId:integer,startDate:date,endDate:date
