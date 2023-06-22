@@ -9,6 +9,8 @@ import    GetSpots                          from "../src/components/Spots/GetSpo
 import    SpotDetails                       from "../src/components/Spots/SpotDetails";
 import    CreateSpotForm                    from "../src/components/Spots/CreateSpotFormModal/CreateSpotForm";
 
+//commit 
+
 const App= () => {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
