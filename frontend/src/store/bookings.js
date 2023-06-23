@@ -14,6 +14,14 @@ const UPDATE_BOOKING = "bookings/updateBooking";
 // DELETE
 const DELETE_BOOKING = "bookings/deleteBooking";
 
+// ACTIONS | CREATE
+const createBooking = (payload) => {
+  return {
+    type: CREATE_BOOKING,
+    payload,
+  };
+};
+
 // ACTIONS | READ | GET
 const getAllBookingsAction = (payload) => {
     return {
@@ -53,6 +61,38 @@ const getAllBookingsAction = (payload) => {
     };
   };
 
+  
+// THUNK | CREATE | POST
+  export const createBookingThunk = (payload) => async (dispatch) => {
+    const response = await csrfFetch("/api/bookings", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+  
+    if (response.ok) {
+      const data = await response.json();
+      // dispatch(createBookingAction(data))
+      dispatch(getOneBookingThunk(data.id));
+  
+      return data;
+    }
+  };
+  
+  // export const createBookingImageThunk = (payload, bookingId) => async (dispatch) => {
+  //   const response = await csrfFetch(`/api/bookings/${bookingId}/images`, {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(payload),
+  //   });
+  
+  //   if (response.ok) {
+  //     const data = await response.json();
+  //     dispatch(createBookingImageAction(data));
+  //     return data;
+  //   }
+  // };
+  
 // THUNK | READ | GET
 export const getAllBookingsThunk = () => async (dispatch) => {
     const response = await fetch("/api/bookings");
@@ -83,39 +123,8 @@ export const getAllBookingsThunk = () => async (dispatch) => {
       return data;
     }
   };
-  
-// THUNK | CREATE | POST
-  export const createBookingThunk = (payload) => async (dispatch) => {
-    const response = await csrfFetch("/api/bookings", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-  
-    if (response.ok) {
-      const data = await response.json();
-      // dispatch(createBookingAction(data))
-      dispatch(getOneBookingThunk(data.id));
-  
-      return data;
-    }
-  };
-  
-  export const createBookingImageThunk = (payload, bookingId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/bookings/${bookingId}/images`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-  
-    if (response.ok) {
-      const data = await response.json();
-      dispatch(createBookingImageAction(data));
-      return data;
-    }
-  };
-  
-// THUNK | UPDATE | PUT
+
+  // THUNK | UPDATE | PUT
   export const updateBookingThunk = (payload, bookingId) => async (dispatch) => {
     const response = await csrfFetch(`/api/bookings/${bookingId}`, {
       method: "PUT",
