@@ -8,6 +8,7 @@ import UpdateSpotFormModal from "../UpdateSpotFormModal";
 import UpdateReviewFormModal from "../../Reviews/UpdateReviewFormModal";
 import DeleteSpotFormModal from "../DeleteSpotFormModal";
 import DeleteReviewFormModal from "../../Reviews/DeleteReviewModal";
+import CreateBookingForm from "../../Bookings/CreateBooking";
 import "./SpotDetails.css";
 
 const SpotDetails = () => {
@@ -142,26 +143,7 @@ const SpotDetails = () => {
                         </div>
                     </div>
 
-                    <div className="bookings-container">
-                        <div id="booking-header">
-                            <h2 id="price-per-night-1">PRICE</h2>
-                            <h2 id="avg-star-review">AVG STAR</h2>
-                            <h2 id="num-of-reviews">NUM OF REVIEWS</h2>
-                        </div>
-
-                        <div id="booking-info">
-
-                            <h2 type="date" id="check-in">CHECK-IN DATE</h2>
-                            <h2 type="date" id="check-out">CHECK-OUT DATE</h2>
-                        </div>
-
-                        <button>RESERVE</button>
-                        <>YOU WON'T BE CHARGED YET</>
-
-                        <div id="booking-footer">
-                            <h2 id="price-per-night-2">PRICE</h2>
-                        </div>
-                    </div>
+                <CreateBookingForm/>
 
                     {/* <div className="reviews-container">
             <div className="reviews-of-spot">
