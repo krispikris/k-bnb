@@ -10,7 +10,7 @@ const CreateBookingForm = () => {
 
     const [checkin, setCheckin] = useState('');
     const [checkout, setCheckout] = useState('');
-    const [guestsNum, setGuestNum] = useState('');
+    // const [guestsNum, setGuestNum] = useState('');
 
     const [validationErrors, setValidationErrors] = useState('');
     // validation errors on submit: date booked is free, too many guests,
@@ -23,13 +23,16 @@ const CreateBookingForm = () => {
         const bookingFormInputs = {
             checkin,
             checkout,
-            guestsNum
+            // guestsNum
         };
 
         const newBooking = await dispatch(createBookingThunk(bookingFormInputs));
         // once booked have a booking confirmation module
         // return history.push(`/bookings/${newBooking.id}`);
 
+
+        // session user
+        // error validations (backend as well)
     }
 
     return (
@@ -62,13 +65,13 @@ const CreateBookingForm = () => {
                         onChange={e => setCheckout(e.target.value)}
                     />
 
-                    <label id="guests">NUMBER OF GUESTS</label>
+                    {/* <label id="guests">NUMBER OF GUESTS</label>
                     <input id="num-of-guests"
                         type="number"
                         name="guestsNum"
                         value={guestsNum}
                         onChange={e => setGuestNum(e.target.value)}
-                    />
+                    /> */}
                 </div>
 
                 <button>RESERVE</button>

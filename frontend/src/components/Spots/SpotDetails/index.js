@@ -8,7 +8,7 @@ import UpdateSpotFormModal from "../UpdateSpotFormModal";
 import UpdateReviewFormModal from "../../Reviews/UpdateReviewFormModal";
 import DeleteSpotFormModal from "../DeleteSpotFormModal";
 import DeleteReviewFormModal from "../../Reviews/DeleteReviewModal";
-import CreateBookingForm from "../../Bookings/CreateBooking";
+import CreateBookingForm from "../../Bookings/CreateBookingForm";
 import "./SpotDetails.css";
 
 const SpotDetails = () => {
