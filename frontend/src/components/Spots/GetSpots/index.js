@@ -34,8 +34,8 @@ const GetSpots = () => {
                     className="spot-card"
                     src={spot?.previewImage || ""}
                     onError={(e) =>
-                      (e.target.src =
-                        "https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png")
+                    (e.target.src =
+                      "https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png")
                     }
                     alt="one-spot-card"
                   />
@@ -51,7 +51,7 @@ const GetSpots = () => {
                     <div id="spot-description-right">
                       <div id="spot-prop-3">
                         <i className="fa-solid fa-star"></i>{" "}
-                        {spot?.avgRating?.toFixed(1) || 0}
+                        {spot?.avgRating?.toFixed(2) || 0}
                       </div>
                       <div id="spot-prop-4">${spot.price} per night</div>
                     </div>

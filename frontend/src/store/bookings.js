@@ -24,133 +24,133 @@ const createBooking = (payload) => {
 
 // ACTIONS | READ | GET
 const getAllBookingsAction = (payload) => {
-    return {
-      type: GET_BOOKINGS,
-      payload,
-    };
+  return {
+    type: GET_BOOKINGS,
+    payload,
   };
-  
-  const getOneBookingAction = (payload) => {
-    return {
-      type: GET_ONE_BOOKING,
-      payload,
-    };
-  };
-  
-  const getUserBookingAction = (payload) => {
-    return {
-      type: GET_USER_BOOKING,
-      payload,
-    };
-  };
-  
-  
-// ACTIONS | UPDATE | PUT
-  const updateBookingAction = (payload) => {
-    return {
-      type: UPDATE_BOOKING,
-      payload,
-    };
-  };
-  
-// ACTIONS | DELETE
-  const deleteBookingAction = (payload) => {
-    return {
-      type: DELETE_BOOKING,
-      payload,
-    };
-  };
+};
 
-  
-// THUNK | CREATE | POST
-  export const createBookingThunk = (payload) => async (dispatch) => {
-    const response = await csrfFetch("/api/bookings", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-  
-    if (response.ok) {
-      const data = await response.json();
-      // dispatch(createBookingAction(data))
-      dispatch(getOneBookingThunk(data.id));
-  
-      return data;
-    }
+const getOneBookingAction = (payload) => {
+  return {
+    type: GET_ONE_BOOKING,
+    payload,
   };
-  
-  // export const createBookingImageThunk = (payload, bookingId) => async (dispatch) => {
-  //   const response = await csrfFetch(`/api/bookings/${bookingId}/images`, {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify(payload),
-  //   });
-  
-  //   if (response.ok) {
-  //     const data = await response.json();
-  //     dispatch(createBookingImageAction(data));
-  //     return data;
-  //   }
-  // };
-  
+};
+
+const getUserBookingAction = (payload) => {
+  return {
+    type: GET_USER_BOOKING,
+    payload,
+  };
+};
+
+
+// ACTIONS | UPDATE | PUT
+const updateBookingAction = (payload) => {
+  return {
+    type: UPDATE_BOOKING,
+    payload,
+  };
+};
+
+// ACTIONS | DELETE
+const deleteBookingAction = (payload) => {
+  return {
+    type: DELETE_BOOKING,
+    payload,
+  };
+};
+
+
+// THUNK | CREATE | POST
+export const createBookingThunk = (payload) => async (dispatch) => {
+  const response = await csrfFetch("/api/bookings", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    // dispatch(createBookingAction(data))
+    dispatch(getOneBookingThunk(data.id));
+
+    return data;
+  }
+};
+
+// export const createBookingImageThunk = (payload, bookingId) => async (dispatch) => {
+//   const response = await csrfFetch(`/api/bookings/${bookingId}/images`, {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify(payload),
+//   });
+
+//   if (response.ok) {
+//     const data = await response.json();
+//     dispatch(createBookingImageAction(data));
+//     return data;
+//   }
+// };
+
 // THUNK | READ | GET
 export const getAllBookingsThunk = () => async (dispatch) => {
-    const response = await fetch("/api/bookings");
-  
-    if (response.ok) {
-      const data = await response.json();
-      dispatch(getAllBookingsAction(data));
-      return data;
-    }
-  };
-  
-  export const getOneBookingThunk = (bookingId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/bookings/${bookingId}`);
-  
-    if (response.ok) {
-      const data = await response.json();
-      dispatch(getOneBookingAction(data));
-      return data;
-    }
-  };
-  
-  export const getUserBookingThunk = () => async (dispatch) => {
-    const response = await csrfFetch("api/bookings/current");
-  
-    if (response.ok) {
-      const data = await response.json();
-      dispatch(getUserBookingAction(data));
-      return data;
-    }
-  };
+  const response = await fetch("/api/bookings");
 
-  // THUNK | UPDATE | PUT
-  export const updateBookingThunk = (payload, bookingId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/bookings/${bookingId}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-  
-    if (response.ok) {
-      const data = await response.json();
-      dispatch(updateBookingAction(data));
-      return data;
-    }
-  };
-  
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(getAllBookingsAction(data));
+    return data;
+  }
+};
+
+export const getOneBookingThunk = (bookingId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/bookings/${bookingId}`);
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(getOneBookingAction(data));
+    return data;
+  }
+};
+
+export const getUserBookingsThunk = () => async (dispatch) => {
+  const response = await csrfFetch("api/bookings/current");
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(getUserBookingAction(data));
+    return data;
+  }
+};
+
+// THUNK | UPDATE | PUT
+export const updateBookingThunk = (payload, bookingId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/bookings/${bookingId}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(updateBookingAction(data));
+    return data;
+  }
+};
+
 // THUNK | DELETE
-  export const deleteBookingThunk = (bookingId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/bookings/${bookingId}`, {
-      method: "DELETE",
-    });
-  
-    if (response.ok) {
-      const data = await response.json();
-      dispatch(deleteBookingAction(bookingId));
-      return data;
-    }
-  };
+export const deleteBookingThunk = (bookingId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/bookings/${bookingId}`, {
+    method: "DELETE",
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(deleteBookingAction(bookingId));
+    return data;
+  }
+};
 
 // REDUCER
 let initialState = {};
