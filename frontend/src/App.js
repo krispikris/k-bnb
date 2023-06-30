@@ -1,15 +1,16 @@
 // frontend/src/App.js
-import    React, { useState, useEffect }    from "react";
-import  { useDispatch }                     from "react-redux";
-import  { Route, Switch }                   from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { Route, Switch } from "react-router-dom";
 
-import    * as sessionActions               from "../src/store/session";
-import    Navigation                        from "../src/components/Navigation";
-import    GetSpots                          from "../src/components/Spots/GetSpots";
-import    SpotDetails                       from "../src/components/Spots/SpotDetails";
-import    CreateSpotForm                    from "../src/components/Spots/CreateSpotFormModal/CreateSpotForm";
+import * as sessionActions from "../src/store/session";
+import Navigation from "../src/components/Navigation";
+import GetSpots from "../src/components/Spots/GetSpots";
+import SpotDetails from "../src/components/Spots/SpotDetails";
+import CreateSpotForm from "../src/components/Spots/CreateSpotFormModal/CreateSpotForm";
+import GetBookings from "../src/components/Bookings/GetBookings"
 
-const App= () => {
+const App = () => {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
@@ -29,6 +30,9 @@ const App= () => {
           </Route>
           <Route path='/spots/:spotId'>
             <SpotDetails />
+          </Route>
+          <Route path='/my-bookings'>
+            <GetBookings />
           </Route>
         </Switch>
       )}

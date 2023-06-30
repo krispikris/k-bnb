@@ -1,33 +1,35 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllBookingsThunk } from "../../../store/spots";
+import { getUserBookingsThunk, updateBookingThunk, deleteBookingThunk } from "../../../store/bookings"
 import { NavLink } from "react-router-dom";
 import "./GetBookings.css";
 
 const GetBookings = () => {
     const dispatch = useDispatch();
-    const bookings = useSelector((state) => {
-        return state.bookings
-    })
-
     const [isLoaded, setIsLoaded] = useState(false);
-    const allBookings = Object.values(bookings);
+
+    const sessionUser = useSelector(state => state.session.user);
+
+    const allBookingsObj = useSelector(state => state.bookings);
+    const allBookingsArr = Object.values(allBookingsObj)
+    const sessionUsersBookings = allBookingsArr.find(booking => booking.userId === sessionUser.id)
 
     useEffect(() => {
-        dispatch(getAllBookingsThunk()).then(() => setIsLoaded(true));
+        dispatch(getUserBookingsThunk()).then(() => setIsLoaded(true));
     }, [dispatch]);
 
     return (
         isLoaded && (
             <>
                 <div className="all-bookings-wraps">
+                    <h1>MY BOOKINGS</h1>
                     <div className="all-bookings-container">
-                        {allBookings.map((booking) => (
-                            <div key={booking.id} className="individual-booking-container">
-                                <NavLink to={`/bookings/${booking.id}`}>
+                        {allBookingsArr.map((booking) => (
+                            <div className="individual-booking-container">
+                                <NavLink to={`/spots/${booking.spotId}`}>
                                     <img
                                         className="booking-card"
-                                        src={booking?.previewImage || ""}
+                                        src={booking?.Spot?.previewImage || ""}
                                         onError={(e) => (
                                             e.target.src = "https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png"
                                         )}
@@ -45,6 +47,9 @@ const GetBookings = () => {
                                                 {booking?.avgRating?.toFixed(2) || 0}</div>
                                             <div id="booking-prop-4-price">
                                                 ${booking.price} per night
+                                            </div>
+                                            <div id="booking-prop-5-dates">
+                                                {booking.checkin} - {booking.checkout}
                                             </div>
                                         </div>
                                     </div>

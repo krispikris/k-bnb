@@ -18,7 +18,6 @@ const SpotDetails = () => {
 
     const sessionUser = useSelector(state => state.session.user);     // OBJ | CURRENT SESSION USER | WHO IS LOGGED IN
 
-
     const allSpotsObj = useSelector(state => state.spots);            // OBJ OF OBJS | ALL SPOTS
     const allSpotsArr = Object.values(allSpotsObj)                    // ARR OF OBJS | ALL SPOTS
     const currentSpotObj = allSpotsArr.find(spot => spot.id === parseInt(spotId));      // OBJ | CURRENT SPOT
