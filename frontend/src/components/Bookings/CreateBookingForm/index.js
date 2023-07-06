@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createBookingThunk } from "../../../store/bookings";
 import "./Bookings.css";
@@ -7,6 +7,7 @@ import "./Bookings.css";
 const CreateBookingForm = () => {
     const history = useHistory();
     const dispatch = useDispatch();
+    const sessionUser = useSelector(state => state.session.user)
 
     const [checkin, setCheckin] = useState('');
     const [checkout, setCheckout] = useState('');
@@ -15,6 +16,14 @@ const CreateBookingForm = () => {
     const [validationErrors, setValidationErrors] = useState('');
     // validation errors on submit: date booked is free, too many guests,
     // too far out, user must be logged in, owner of home cant book themselves
+
+    const totalPriceBeforeTaxes = (num) => {
+        let cleaningFee = Math.round(num * 0.2);
+        let treebnbFee = Math.round(num * 0.1);
+        let priceBeforeTaxes = parseInt(num) + parseInt(cleaningFee) + parseInt(treebnbFee)
+
+        return priceBeforeTaxes;
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -27,13 +36,29 @@ const CreateBookingForm = () => {
         };
 
         const newBooking = await dispatch(createBookingThunk(bookingFormInputs));
+        if (newBooking) history.push(`/trips`);
+
+
         // once booked have a booking confirmation module
         // return history.push(`/bookings/${newBooking.id}`);
 
 
         // session user
         // error validations (backend as well)
+        // mybookings/boookingId
+        // booking/bookingId
+        // user making the booking and time
+        // express goes to view
+        // spots/spotId/bookingId
+        // index request
     }
+
+    useEffect(() => {
+        const errArr = [];
+        if (sessionUser?.user === null) errArr.push("To reserve booking, please log in.");
+
+        setValidationErrors(errArr);
+    }, [dispatch, sessionUser, checkin, checkout])
 
     return (
         <form
