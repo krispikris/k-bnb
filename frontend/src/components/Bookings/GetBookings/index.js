@@ -7,31 +7,36 @@ import "./GetBookings.css";
 const GetBookings = () => {
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false);
-
     const sessionUser = useSelector(state => state.session.user);
 
-    const allBookingsObj = useSelector(state => state.bookings);
-    const allBookingsArr = Object.values(allBookingsObj)
-    const sessionUsersBookings = allBookingsArr.find(booking => booking.userId === sessionUser.id)
+    const bookingsObj = useSelector(state => state.bookings.user);
+    const bookingsArr = Object.values(bookingsObj);
+    // const sessionUsersBookings = bookingsArr.find(booking => booking.userId === sessionUser.id)
 
-    console.log(sessionUsersBookings)
+    console.log(bookingsObj);
+    console.log(bookingsArr);
+
+    // upcoming bookings & past bookings
+    // sort first
+    // then filter by date
 
     useEffect(() => {
         dispatch(getUserBookingsThunk()).then(() => setIsLoaded(true));
     }, [dispatch]);
 
+    // 
     return (
         isLoaded && (
             <>
                 <div className="all-bookings-wraps">
-                    <h1>MY BOOKINGS</h1>
+                    <h1>TRIPS</h1>
                     <div className="all-bookings-container">
-                        {allBookingsArr.map((booking) => (
+                        {bookingsArr.map((booking) => (
                             <div className="individual-booking-container">
-                                <NavLink to={`/spots/${booking.spotId}`}>
+                                <NavLink to={`/spots/${booking.spotId}`} className="booked-spot-name">{booking.Spot.name}
                                     <img
                                         className="booking-card"
-                                        src={booking?.Spot?.previewImage || ""}
+                                        src={booking?.Spot?.previewImage}
                                         onError={(e) => (
                                             e.target.src = "https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png"
                                         )}
@@ -54,10 +59,23 @@ const GetBookings = () => {
                                                 {booking.checkin} - {booking.checkout}
                                             </div>
                                         </div>
+
+                                        <div id="booking-description-bottom">
+                                            <button id="button-delete-booking" onClick={() => dispatch(deleteBookingThunk(booking.id))}>Delete booking</button>
+                                        </div>
                                     </div>
                                 </NavLink>
                             </div>
                         ))}
+                        {!bookingsArr.length
+                            (<div className="no-trips-container">
+                                <h2>No trips booked...yet!</h2>
+                                <h3>Time to dust off your bags and start panning your next adventure</h3>
+                                <NavLink id="button-start-searching" to='/'>
+                                    Start searching
+                                </NavLink>
+                            </div>)
+                        }
                     </div>
                 </div>
             </>
