@@ -3,11 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createBookingThunk } from "../../../store/bookings";
 import "./Bookings.css";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 const CreateBookingForm = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user)
+    const { id } = useParams();
+    const spot = useSelector(state => state.spots[+id]);
 
     const [checkin, setCheckin] = useState('');
     const [checkout, setCheckout] = useState('');
@@ -67,7 +70,7 @@ const CreateBookingForm = () => {
         >
             <div className="bookings-container">
                 <div id="booking-header">
-                    <h2 id="price-per-night-1">PRICE</h2>
+                    <h2 id="price-per-night">${spot?.price}</h2>
                     <h2 id="avg-star-review">AVG STAR</h2>
                     <h2 id="num-of-reviews">NUM OF REVIEWS</h2>
                 </div>

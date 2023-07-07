@@ -14,6 +14,8 @@ const GetBookings = () => {
     const allBookingsArr = Object.values(allBookingsObj)
     const sessionUsersBookings = allBookingsArr.find(booking => booking.userId === sessionUser.id)
 
+    console.log(sessionUsersBookings)
+
     useEffect(() => {
         dispatch(getUserBookingsThunk()).then(() => setIsLoaded(true));
     }, [dispatch]);
