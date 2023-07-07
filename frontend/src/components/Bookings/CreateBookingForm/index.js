@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { createBookingThunk } from "../../../store/bookings";
 import "./Bookings.css";
-// import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 const CreateBookingForm = ({ spot }) => {
     const history = useHistory();
@@ -47,21 +46,24 @@ const CreateBookingForm = ({ spot }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        if (!sessionUser) return alert("You must be logged in to reserve this booking.")
+        if (sessionUser.id === spot.ownerId) return alert("You are hosting this spot. You cannot book your own spot.")
+
         if (validationErrors.length > 0) return
         const bookingFormInputs = {
-            checkin,
-            checkout,
+            startDate: checkin,
+            endDate: checkout,
             guestsNum
         };
 
-        const newBooking = await dispatch(createBookingThunk(bookingFormInputs));
+        const newBooking = await dispatch(createBookingThunk(bookingFormInputs, spot.id));
         if (newBooking) history.push(`/trips`);
 
 
         // once booked have a booking confirmation module
         // return history.push(`/bookings/${newBooking.id}`);
 
-
+        // need to put in default dates
         // session user
         // error validations (backend as well)
         // mybookings/boookingId
@@ -77,7 +79,7 @@ const CreateBookingForm = ({ spot }) => {
         if (sessionUser?.user === null) errArr.push("To reserve booking, please log in.");
 
         setValidationErrors(errArr);
-    }, [dispatch, sessionUser, checkin, checkout])
+    }, [dispatch, sessionUser, checkin, checkout, guestsNum])
 
     return (
         <div className="bookings-container">

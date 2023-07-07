@@ -144,7 +144,7 @@ const SpotDetails = () => {
 
                     <CreateBookingForm spot={currentSpotObj} />
 
-                    {/* <div className="reviews-container">
+                    <div className="reviews-container">
             <div className="reviews-of-spot">
                 <div>
                     <h4 id="title-header-2">Reviews</h4>
@@ -162,7 +162,7 @@ const SpotDetails = () => {
                 ))}
             </div>
 
-        </div> */}
+        </div>
 
                 </div>
                 {/* <DeleteReviewForm /> */}

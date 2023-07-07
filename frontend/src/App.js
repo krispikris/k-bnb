@@ -25,13 +25,13 @@ const App = () => {
           <Route exact path='/'>
             <GetSpots />
           </Route>
-          <Route path='/newSpot'>
+          <Route path='/treebnb-your-home'>
             <CreateSpotForm />
           </Route>
           <Route path='/spots/:spotId'>
             <SpotDetails />
           </Route>
-          <Route path='/my-bookings'>
+          <Route path='/trips'>
             <GetBookings />
           </Route>
         </Switch>

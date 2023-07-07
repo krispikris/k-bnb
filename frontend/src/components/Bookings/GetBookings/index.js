@@ -9,11 +9,11 @@ const GetBookings = () => {
     const [isLoaded, setIsLoaded] = useState(false);
     const sessionUser = useSelector(state => state.session.user);
 
-    const bookingsObj = useSelector(state => state.bookings.user);
+    const bookingsObj = useSelector(state => state.bookings);
     const bookingsArr = Object.values(bookingsObj);
     // const sessionUsersBookings = bookingsArr.find(booking => booking.userId === sessionUser.id)
 
-    console.log(bookingsObj);
+    console.log("BOOKINGS OBJ: ", bookingsObj);
     console.log(bookingsArr);
 
     // upcoming bookings & past bookings
@@ -67,7 +67,7 @@ const GetBookings = () => {
                                 </NavLink>
                             </div>
                         ))}
-                        {!bookingsArr.length
+                        {/* {!bookingsArr.length
                             (<div className="no-trips-container">
                                 <h2>No trips booked...yet!</h2>
                                 <h3>Time to dust off your bags and start panning your next adventure</h3>
@@ -75,7 +75,7 @@ const GetBookings = () => {
                                     Start searching
                                 </NavLink>
                             </div>)
-                        }
+                        } */}
                     </div>
                 </div>
             </>
