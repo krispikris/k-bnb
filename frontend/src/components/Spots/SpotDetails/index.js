@@ -110,7 +110,7 @@ const SpotDetails = () => {
                     <h2 id='spot-title'>{currentSpotObj?.name}</h2>
                     <h4 id='spot-title-info'>
                         {/* <i className="fa-solid fa-star"></i> */}
-                        <div><i className="fa-solid fa-star"></i>  {starsReviewAvg.toFixed(1)} ・ {currentSpotObj.numReviews} Reviews ・ {currentSpotObj.city}, {currentSpotObj.state}, {currentSpotObj.country}</div>
+                        <div><i className="fa-solid fa-star"></i>  {starsReviewAvg.toFixed(2)} ・ {currentSpotObj.numReviews} Reviews ・ {currentSpotObj.city}, {currentSpotObj.state}, {currentSpotObj.country}</div>
                         {/* <div></div> */}
                         {/* <div>{currentSpotObj.city}, {currentSpotObj.state}, {currentSpotObj.country}</div> */}
                         {/* < {currentSpotObj.city}, {currentSpotObj.state} > */}
@@ -142,7 +142,7 @@ const SpotDetails = () => {
                         </div>
                     </div>
 
-                <CreateBookingForm/>
+                    <CreateBookingForm spot={currentSpotObj} />
 
                     {/* <div className="reviews-container">
             <div className="reviews-of-spot">
