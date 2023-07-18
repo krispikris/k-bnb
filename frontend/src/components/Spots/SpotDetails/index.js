@@ -143,28 +143,30 @@ const SpotDetails = () => {
                     </div>
 
                     <CreateBookingForm spot={currentSpotObj} />
-
-                    <div className="reviews-container">
-            <div className="reviews-of-spot">
-                <div>
-                    <h4 id="title-header-2">Reviews</h4>
-                </div>
-                <div className='review-buttons'>
-                    {reviewButtons}
                 </div>
 
-                {currentSpotReviewsArr.map(review => (
-                    <div key={review.id} className="individual-review-container">
-                        <div id="review-writer">What {review.User.firstName} says about their experience...</div>
-                        <div id="review-after">{review.review}</div>
-                        <div>{review.stars} <i className="fa-solid fa-star"></i> review</div>
+                <div className="reviews-container">
+                    <div className="reviews-of-spot">
+                        <div id="reviews-title">
+                            <i className="fa-solid fa-star"></i>  {starsReviewAvg.toFixed(2)} ・ {currentSpotObj.numReviews} Reviews
+                        </div>
+
+
+                        {currentSpotReviewsArr.map(review => (
+                            <div key={review.id} className="individual-review-container">
+                                <div id="review-writer">{review.User.firstName}</div>
+                                <div id="review-after">{review.review}</div>
+                                <div>{review.stars} <i className="fa-solid fa-star"></i> review</div>
+                            </div>
+                        ))}
+
+                        <div className='review-buttons'>
+                            {reviewButtons}
+                        </div>
                     </div>
-                ))}
-            </div>
-
-        </div>
 
                 </div>
+
                 {/* <DeleteReviewForm /> */}
                 {/* <UpdateSpotFormModal />
         <DeleteButton setIsLoaded={setIsLoaded}/> */}
