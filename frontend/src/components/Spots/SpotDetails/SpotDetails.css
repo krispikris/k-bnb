@@ -92,7 +92,7 @@
     /* box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25); */
 }
 
-/* .reviews-container {
+.reviews-container {
     border: 1px rgb(198, 198, 198) solid;
     border-radius: 15px;
     width: 50%;
@@ -101,22 +101,22 @@
     display: grid;
     padding: 12px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
-} */
+}
 
 #reviews-title {
     padding: 12px;
 }
 
-/* .double-card {
+.double-card {
     display: flex;
-} */
+}
 
-/* .reviews-of-spot {
+.reviews-of-spot {
     padding: 20px;
     margin-top: -43px;
     display: flex;
     flex-direction: column;
-} */
+}
 
 #title-header-1 {
     font-size: 25px;
