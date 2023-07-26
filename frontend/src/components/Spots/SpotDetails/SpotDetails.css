@@ -120,6 +120,21 @@
 
 #title-header-1 {
     font-size: 25px;
+    color: rgb(32, 85, 32);
+    font-weight: bold;
+    margin-top: -0.5px;
+    width: 70%;
+}
+
+#title-header-2 {
+    font-size: 25px;
+    color: rgb(32, 85, 32);
+    font-weight: bold;
+    width: 50%;
+}
+
+/* #title-header-1 {
+    font-size: 25px;
     color: green;
     font-weight: bold;
     margin-top: -0.5px;
@@ -131,7 +146,8 @@
     color: green;
     font-weight: bold;
     width: 50%;
-}
+} */
+
 
 #review-writer {
     font-weight: bold;
