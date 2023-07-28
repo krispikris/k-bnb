@@ -6,7 +6,7 @@ const CREATE_LIKE = '/likes/createLike';
 
 // READ | GET | GET LIKES BY SPOT ID
 const GET_USER_LIKES = '/likes/getUserLikes';
-const GET_SPOT_LIKES = 'likes/getSpotLikes';
+// const GET_SPOT_LIKES = 'likes/getSpotLikes';
 
 // DELETE | DELETE | DELETE LIKE BASED ON LIKE ID
 const DELETE_LIKE = 'likes/deleteLike';
@@ -62,7 +62,7 @@ const deleteLikeAction = (payload) => {
 
 // THUNK | CREATE | POST
 export const createLikeThunk = (payload, spotId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/spots/${spotId}/${likeId}`, {
+    const response = await csrfFetch(`/api/likes/${spotId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -78,7 +78,7 @@ export const createLikeThunk = (payload, spotId) => async (dispatch) => {
 // THUNK | READ | GET
 // spotId in this case could also be userId
 export const getUserLikesThunk = (userId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/user/${userId}/likes`);
+    const response = await csrfFetch(`/api/likes/${userId}`);
 
     if (response.ok) {
         const data = await response.json();

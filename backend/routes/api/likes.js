@@ -3,8 +3,17 @@ const router = express.Router();
 const { User, Spot, SpotImage, Booking, Like } = require('../../db/models');
 const { requireAuth } = require('../../utils/auth');
 
+// READ LIKES
+router.get('/ping', async (req, res) => {
+    res.
+        json({
+            status: "Good"
+        })
+})
+
 // CREATE A LIKE
-router.get('/spotId/:likeId', requireAuth, async (req, res) => {
+// http://localhost:8000/api/likes/spotId
+router.post('/:spotId', requireAuth, async (req, res) => {
     const user = req.user;
     const { spotId } = req.params;
     const spot = await Spot.findByPk(spotId);
