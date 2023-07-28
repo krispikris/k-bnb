@@ -8,7 +8,8 @@ import Navigation from "../src/components/Navigation";
 import GetSpots from "../src/components/Spots/GetSpots";
 import SpotDetails from "../src/components/Spots/SpotDetails";
 import CreateSpotForm from "../src/components/Spots/CreateSpotFormModal/CreateSpotForm";
-import GetBookings from "../src/components/Bookings/GetBookings"
+import GetBookings from "../src/components/Bookings/GetBookings";
+import GetLikes from "../src/components/Likes/GetLikes";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -33,6 +34,9 @@ const App = () => {
           </Route>
           <Route path='/trips'>
             <GetBookings />
+          </Route>
+          <Route path='/wishlist'>
+            <GetLikes />
           </Route>
         </Switch>
       )}
