@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { User, Spot, SpotImage, Booking, Likes } = require('../../db/models');
+const { User, Spot, SpotImage, Booking, Like } = require('../../db/models');
 const { requireAuth } = require('../../utils/auth');
 
 // GET LIKES BY THE CURRENT USER (WISHLIST)
@@ -29,7 +29,19 @@ router.get('/wishlist', requireAuth, async (req, res) => {
 // DELETE LIKE
 router.delete('/:likeId', requireAuth, async (req, res) => {
     const { likeId } = req.params;
-    const like = await L
+    const like = await Like.findByPk(likeId);
+
+    if (!like) {
+        res
+        .status(404)
+        .json({
+            message: "Have not liked",
+            statusCode: 404
+        });
+    };
+
+    await like.destroy();
+    
 })
 
 module.exports = router;
