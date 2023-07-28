@@ -26,4 +26,10 @@ router.get('/wishlist', requireAuth, async (req, res) => {
     res.json({ Likes: result })
 });
 
+// DELETE LIKE
+router.delete('/:likeId', requireAuth, async (req, res) => {
+    const { likeId } = req.params;
+    const like = await L
+})
+
 module.exports = router;
