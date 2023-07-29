@@ -45,7 +45,7 @@ router.post('/:spotId', requireAuth, async (req, res) => {
 })
 
 // GET LIKES BY THE CURRENT USER (WISHLIST)
-router.get('/wishlist', requireAuth, async (req, res) => {
+router.get('/current', requireAuth, async (req, res) => {
     // const wishlist = await Spot.findAll({            Spot should be attached to Like so the SpotImage can be found
     const wishlist = await Like.findAll({
         where: { userId: req.user.id }
