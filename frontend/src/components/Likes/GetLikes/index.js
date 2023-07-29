@@ -4,7 +4,7 @@
 // delete like will be in html as a button
 // <button id="button-delete-like" onClick={() => dispatch(deleteLikeThunk(like.id))}>Delete like</button>
 
-// frontend/src/components/Likes/GetLikes.js
+// frontend/src/components/Likes/GetLikes/index.js
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserLikesThunk, deleteLikeThunk } from "../../../store/likes"
