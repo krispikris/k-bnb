@@ -1,3 +1,5 @@
+// frontend/src/components/Bookings/GetBookings/index.js
+
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserBookingsThunk, updateBookingThunk, deleteBookingThunk } from "../../../store/bookings"
