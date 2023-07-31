@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllSpotsThunk } from "../../../store/spots";
 import { NavLink } from "react-router-dom";
+import CreateLikeForm from "../../Likes/CreateLikeForm";
 import "./GetSpots.css";
 
 const GetSpots = () => {
@@ -45,6 +46,7 @@ const GetSpots = () => {
                       <div id="spot-prop-1">{spot.name}</div>
                       <div id="spot-prop-2">
                         {spot.city}, {spot.state}
+                        <CreateLikeForm />
                       </div>
                     </div>
 
