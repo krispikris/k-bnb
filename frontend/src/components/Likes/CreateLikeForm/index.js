@@ -42,6 +42,13 @@ const CreateLikeForm = ({ spot }) => {
 
     return (
         <div className="likes-container">
+            <input id="like-submit"
+                type="text"
+                name="like"
+                value={like}
+                onChange={e => setLike(e.target.value)}
+                required
+            />
             <button id="create-like" type="submit">Like</button>
         </div>
 
