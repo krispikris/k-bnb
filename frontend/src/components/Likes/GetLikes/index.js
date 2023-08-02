@@ -25,6 +25,21 @@ const GetLikes = () => {
     useEffect(() => {
         dispatch(getUserLikesThunk()).then(() => setIsLoaded(true));
     }, [dispatch]);
+
+    return (
+        isLoaded && (
+            <div className="all-likes-wrap">
+                <div className="all-likes-container">
+                    {allLikes.map((user) => (
+                        <div key={user.id} className="individual-like-container">
+                            {/* <NavLink to={'/spot/${spot.id}'} */}
+
+                        </div>
+                    ))}
+                </div>
+            </div>
+        )
+    )
 }
 
 export default GetLikes;
