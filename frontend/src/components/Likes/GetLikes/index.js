@@ -16,6 +16,12 @@ const GetLikes = () => {
     const [isLoaded, setIsLoaded] = useState(false);
     const sessionUser = useSelector(state => state.session.user);
 
+    const allLikes = useSelector(state => state.likes)
+    const allLikeArr = Object.values(allLikes)
+    const userLikes = allLikeArr.find(user => user.id === parseInt(userId))
+
+    // need to be sure the like belongs to the current session user
+
     useEffect(() => {
         dispatch(getUserLikesThunk()).then(() => setIsLoaded(true));
     }, [dispatch]);
