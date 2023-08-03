@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const { User, Spot, SpotImage, Booking, Like } = require('../../db/models');
+const { User, Spot, SpotImage, Booking, Like, Review } = require('../../db/models');
 const { requireAuth } = require('../../utils/auth');
 
 // READ LIKES
-router.get('/ping', async (req, res) => {
-    res.
-        json({
-            status: "Good"
-        })
-})
+// router.get('/ping', async (req, res) => {
+//     res.
+//         json({
+//             status: "Good"
+//         })
+// })
 
 // CREATE A LIKE
 // http://localhost:8000/api/likes/spotId
@@ -62,6 +62,13 @@ router.get('/current', requireAuth, async (req, res) => {
 
         if (image) like.Spot.previewImage = image.url;
         else like.Spot.previewImage = null;
+
+        const ratings = await Review.findAll({
+            where: { spotId: like.spotId },
+            attributes: [[sequelize.fn('AVG', sequelize.col('stars')), 'avgRating']]
+        });
+
+        like.avgRating = Number(ratings[0].toJSON().avgRating);
     }
 
 
