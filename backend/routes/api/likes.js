@@ -51,24 +51,26 @@ router.get('/current', requireAuth, async (req, res) => {
         where: { userId: req.user.id }
     })
 
-    let result = [];
+    let result = []
     for (let like of wishlist) {
-        like = like.toJSON();
+        like = like.toJSON()
 
         const image = await SpotImage.findOne({
             where: { spotId: like.spotId, preview: true },
             attributes: ['url']
         });
 
-        if (image) like.Spot.previewImage = image.url;
-        else like.Spot.previewImage = null;
+        if (image) like.Spot.previewImage = image.url
+        else like.Spot.previewImage = null
 
         const ratings = await Review.findAll({
             where: { spotId: like.spotId },
             attributes: [[sequelize.fn('AVG', sequelize.col('stars')), 'avgRating']]
-        });
+        })
 
-        like.avgRating = Number(ratings[0].toJSON().avgRating);
+        like.avgRating = Number(ratings[0].toJSON().avgRating)
+
+        result.push(like)
     }
 
 
@@ -77,8 +79,8 @@ router.get('/current', requireAuth, async (req, res) => {
 
 // DELETE LIKE
 router.delete('/:likeId', requireAuth, async (req, res) => {
-    const { likeId } = req.params;
-    const like = await Like.findByPk(likeId);
+    const { likeId } = req.params
+    const like = await Like.findByPk(likeId)
 
     if (!like) {
         res
@@ -86,11 +88,11 @@ router.delete('/:likeId', requireAuth, async (req, res) => {
             .json({
                 message: "Have not liked",
                 statusCode: 404
-            });
-    };
+            })
+    }
 
-    await like.destroy();
+    await like.destroy()
 
-})
+});
 
 module.exports = router;
