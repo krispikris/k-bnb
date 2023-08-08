@@ -5,12 +5,12 @@ import { useHistory } from "react-router-dom";
 import { createLikeThunk } from "../../../store/likes";
 import "./Likes.css";
 
-const CreateLikeForm = ({ spot }) => {
+const CreateLikeForm = ({ spotToLike }) => {
     const dispatch = useDispatch()
     const history = useHistory()
-    const sessionUser = useSelector(state => state.sessionUser)
+    const sessionUser = useSelector(state => state.session.user)
     const [validationErrors, setValidationErrors] = useState('')
-    const [like, setLike] = useState('')
+    const [like, setLike] = useState(false)
     // const {spotId} = useParams()
 
     // console.log('THIS IS THE CURRENT USER AS AN OBJ: ', currentUser);
@@ -27,13 +27,14 @@ const CreateLikeForm = ({ spot }) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        let likeInput = { like }
+        // let likeInput = { like }
 
-        if (!sessionUser) return alert("You must be logged in to like this listing.")
-        if (sessionUser.id === spot.ownerId) return alert("You are hosting this spot. You cannot like your own spot.")
+        debugger
+        if (!sessionUser) return alert("You must be logged in to like this listing. 222")
+        if (sessionUser.id === spotToLike.ownerId) return alert("You are hosting this spot. You cannot like your own spot.")
 
 
-        dispatch(createLikeThunk(likeInput, spot.id, sessionUser))
+        dispatch(createLikeThunk(spotToLike.id))
 
         // const newLike = await dispatch(createLikeThunk(like, spot.id))
         // if (newLike) history.push('/wishlist')
@@ -42,14 +43,20 @@ const CreateLikeForm = ({ spot }) => {
 
     return (
         <div className="likes-container">
-            <input id="like-submit"
-                type="text"
-                name="like"
-                value={like}
-                onChange={e => setLike(e.target.value)}
-                required
-            />
-            <button id="create-like" type="submit">Like</button>
+            {/* <form className="likes-form"
+                onSubmit={handleSubmit}>
+                <input id="like-submit"
+                    type="text"
+                    name="like"
+                    value={like}
+                    onChange={e => setLike(e.target.value)}
+                />
+            </form> */}
+            <button
+                id="create-like"
+                type="submit"
+                onClick={handleSubmit}
+            >Like</button>
         </div>
 
     )

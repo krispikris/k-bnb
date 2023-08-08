@@ -61,11 +61,12 @@ const deleteLikeAction = (payload) => {
 };
 
 // THUNK | CREATE | POST
-export const createLikeThunk = (payload, spotId) => async (dispatch) => {
+export const createLikeThunk = (spotId) => async (dispatch) => {
+    debugger
     const response = await csrfFetch(`/api/likes/${spotId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        // body: JSON.stringify(payload)
     });
 
     if (response.ok) {

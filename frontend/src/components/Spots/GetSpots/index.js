@@ -46,7 +46,6 @@ const GetSpots = () => {
                       <div id="spot-prop-1">{spot.name}</div>
                       <div id="spot-prop-2">
                         {spot.city}, {spot.state}
-                        <CreateLikeForm />
                       </div>
                     </div>
 
@@ -59,6 +58,8 @@ const GetSpots = () => {
                     </div>
                   </div>
                 </NavLink>
+                {/* <CreateLikeForm spot={spot}/> */}
+                <CreateLikeForm spotToLike={spot}/>
               </div>
             ))}
           </div>

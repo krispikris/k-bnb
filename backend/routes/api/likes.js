@@ -73,7 +73,6 @@ router.get('/current', requireAuth, async (req, res) => {
         result.push(like)
     }
 
-
     res.json({ Likes: result })
 });
 
