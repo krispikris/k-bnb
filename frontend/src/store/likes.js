@@ -62,12 +62,15 @@ const deleteLikeAction = (payload) => {
 
 // THUNK | CREATE | POST
 export const createLikeThunk = (spotId) => async (dispatch) => {
-    debugger
+    // debugger
     const response = await csrfFetch(`/api/likes/${spotId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        // body: JSON.stringify(payload)
+        // body: JSON.stringify(spotId)
     });
+
+    console.log('RESPONSE', response)
+    console.log('CURRENT SPOTID', spotId)
 
     if (response.ok) {
         const data = await response.json();
@@ -75,6 +78,40 @@ export const createLikeThunk = (spotId) => async (dispatch) => {
         return data;
     }
 }
+
+// HELP FROM CHATGPT
+// export const createLikeThunk = (spotId) => async (dispatch, getState) => {
+//     try {
+//         const response = await csrfFetch(`/api/likes/${spotId}`, {
+//             method: 'POST',
+//             headers: { 'Content-Type': 'application/json' },
+//         });
+
+//         if (response.ok) {
+//             const data = await response.json();
+
+//             const currentState = getState();
+
+//             if (currentState.likes[data.id]) {
+//                 const updatedLike = {
+//                     ...currentState.likes[data.id],
+//                     ...data,
+//                 };
+//                 dispatch(createLikeAction(updatedLike));
+//             } else {
+//                 dispatch(createLikeAction(data));
+//             }
+
+//             return data;
+//         } else {
+//             // Handle non-OK response here
+//             console.error('Failed to create like:', response.status, response.statusText);
+//         }
+//     } catch (error) {
+//         console.error('Error creating like:', error);
+//     }
+// };
+
 
 // THUNK | READ | GET
 // spotId in this case could also be userId

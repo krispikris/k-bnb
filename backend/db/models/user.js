@@ -29,8 +29,8 @@ module.exports = (sequelize, DataTypes) => {
         }
       });
 
-    if (user && user.validatePassword(password)) {
-       return await User.scope('currentUser').findByPk(user.id);
+      if (user && user.validatePassword(password)) {
+        return await User.scope('currentUser').findByPk(user.id);
       }
     };
 
@@ -49,9 +49,11 @@ module.exports = (sequelize, DataTypes) => {
 
     static associate(models) {
       // ONE TO MANY
-      User.hasMany(models.Spot,         { foreignKey: 'ownerId', onDelete: 'CASCADE' });
-      User.hasMany(models.Review,       { foreignKey: 'userId' });
-      User.hasMany(models.Booking,      { foreignKey: 'userId' });
+      User.hasMany(models.Spot, { foreignKey: 'ownerId', onDelete: 'CASCADE' });
+      User.hasMany(models.Review, { foreignKey: 'userId' });
+      User.hasMany(models.Booking, { foreignKey: 'bookingId' });
+      User.hasMany(models.Like, { foreignKey: 'likeId' });
+
 
     }
 
@@ -69,11 +71,18 @@ module.exports = (sequelize, DataTypes) => {
   //                                     onDelete:   'CASCADE' });
 
   User.init({
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+      allowNull: false
+    },
+
     firstName: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-          len: [1, 30]
+        len: [1, 30]
       }
     },
 
@@ -81,7 +90,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-          len: [1, 30]
+        len: [1, 30]
       }
     },
 
@@ -104,9 +113,9 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         len: [4, 30],
         isNotEmail(value) {
-            if (Validator.isEmail(value)) {
-                throw new Error ('Cannot be an email');
-            }
+          if (Validator.isEmail(value)) {
+            throw new Error('Cannot be an email');
+          }
         }
       }
     },
@@ -115,29 +124,29 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING.BINARY,
       allowNull: false,
       validate: {
-          len: [60, 60]
+        len: [60, 60]
       }
     }
   },
 
-  {
-    sequelize,
-    modelName: 'User',
-    defaultScope: {
-      attributes: {
-        exclude: ['hashedPassword', 'createdAt', 'updatedAt']
-      }
-    },
-
-    scopes: {
-      currentUser: {
-        attributes: { exclude: ['hashedPassword', 'createdAt', 'updatedAt'] }
+    {
+      sequelize,
+      modelName: 'User',
+      defaultScope: {
+        attributes: {
+          exclude: ['hashedPassword', 'createdAt', 'updatedAt']
+        }
       },
-      loginUser: {
-        attributes: {}
+
+      scopes: {
+        currentUser: {
+          attributes: { exclude: ['hashedPassword', 'createdAt', 'updatedAt'] }
+        },
+        loginUser: {
+          attributes: {}
+        }
       }
-    }
-  });
+    });
 
   return User;
 };

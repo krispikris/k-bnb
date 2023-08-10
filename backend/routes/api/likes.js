@@ -18,6 +18,8 @@ router.post('/:spotId', requireAuth, async (req, res) => {
     const { spotId } = req.params;
     const spot = await Spot.findByPk(spotId);
 
+    // console.log('NEW LIKE:')
+
     if (!user) {
         return res
             .status(404)
@@ -40,6 +42,7 @@ router.post('/:spotId', requireAuth, async (req, res) => {
         userId: req.user.id,
         spotId: spotId
     });
+
 
     return res.json(newLike)
 })

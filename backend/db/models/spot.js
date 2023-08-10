@@ -6,10 +6,11 @@ module.exports = (sequelize, DataTypes) => {
   class Spot extends Model {
     static associate(models) {
       // ONE-TO-MANY (4x)
-      Spot.belongsTo(models.User,       { foreignKey: 'ownerId', as: 'Owner'});
-      Spot.hasMany(models.SpotImage,    { foreignKey: 'spotId' });
-      Spot.hasMany(models.Review,       { foreignKey: 'spotId' });
-      Spot.hasMany(models.Booking,      { foreignKey: 'spotId' });
+      Spot.belongsTo(models.User, { foreignKey: 'ownerId', as: 'Owner' });
+      Spot.hasMany(models.SpotImage, { foreignKey: 'spotId' });
+      Spot.hasMany(models.Review, { foreignKey: 'reviewId' });
+      Spot.hasMany(models.Booking, { foreignKey: 'bookingId' });
+      Spot.hasMany(models.Like, { foreignKey: 'likeId' });
 
     }
   }

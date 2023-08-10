@@ -29,7 +29,7 @@ const CreateLikeForm = ({ spotToLike }) => {
 
         // let likeInput = { like }
 
-        debugger
+        // debugger
         if (!sessionUser) return alert("You must be logged in to like this listing. 222")
         if (sessionUser.id === spotToLike.ownerId) return alert("You are hosting this spot. You cannot like your own spot.")
 
