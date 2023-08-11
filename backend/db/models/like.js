@@ -12,20 +12,19 @@ module.exports = (sequelize, DataTypes) => {
 
     }
     Like.init({
-        id: {
-            type: DataTypes.INTEGER,
-            autoIncrement: true,
-            primaryKey: true
-        },
+        // id: {
+        //     type: DataTypes.INTEGER,
+        //     autoIncrement: true,
+        //     primaryKey: true,
+        //     allowNull: false
+        // },
 
         spotId: {
-            type: DataTypes.INTEGER,
-            allowNull: true
+            type: DataTypes.INTEGER
         },
 
         userId: {
-            type: DataTypes.INTEGER,
-            allowNull: true
+            type: DataTypes.INTEGER
         }
     }, {
 

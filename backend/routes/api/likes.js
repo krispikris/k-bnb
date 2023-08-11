@@ -38,9 +38,20 @@ router.post('/:spotId', requireAuth, async (req, res) => {
             })
     }
 
+    // console.log('REQ USER: ', typeof user.id)
+    // console.log('SPOTID: ', typeof spot.id)
+
+    // let like = new Like();
+    // like.userId = user.id
+    // like.spotId = spot.id
+    // await like.save()
+
+    // console.log('SPOT.ID: ', like.spotId)
+    // console.log('NEW LIKE VARIABLE: ', like)
+
     const newLike = await Like.create({
-        userId: req.user.id,
-        spotId: spotId
+        userId: user.id,
+        spotId: spot.id
     });
 
 
