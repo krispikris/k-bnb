@@ -3,7 +3,7 @@
 const { SpotImage } = require('../models');
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('SpotImages', [
       // EACH SPOT 5 IMAGES
       // SpotID: 1 | Owned by Kris
@@ -195,31 +195,31 @@ module.exports = {
       // SpotID: 7 | Owned by Andrew
       {
         spotId: 7,
-        url: 'https://a0.muscache.com/im/pictures/miso/Hosting-18994970/original/9a160552-6fa1-4d07-9a49-b93a4792dd74.jpeg ',
+        url: 'https://a0.muscache.com/im/pictures/prohost-api/Hosting-17077091/original/b0cfffb7-c0f3-4512-a674-1041a2d33b40.jpeg',
         preview: true
       },
 
       {
         spotId: 7,
-        url: 'https://a0.muscache.com/im/pictures/miso/Hosting-18994970/original/3053f0e2-ee01-4d33-be67-2b7d3724e447.jpeg ',
+        url: 'https://a0.muscache.com/im/pictures/prohost-api/Hosting-17077091/original/b5640646-2c67-4b43-a88d-7b7aa38a8c32.jpeg ',
         preview: true
       },
 
       {
         spotId: 7,
-        url: 'https://a0.muscache.com/im/pictures/miso/Hosting-18994970/original/d4a7343f-6475-4e58-a3ce-0e28599a7ea2.jpeg ',
+        url: 'https://a0.muscache.com/im/pictures/prohost-api/Hosting-17077091/original/aaa37037-febd-41ad-b3c5-6ca3ed7eec24.jpeg ',
         preview: true
       },
 
       {
         spotId: 7,
-        url: 'https://a0.muscache.com/im/pictures/miso/Hosting-18994970/original/b7b4da60-02cd-4193-8d54-5c55312b89c6.jpeg ',
+        url: 'https://a0.muscache.com/im/pictures/prohost-api/Hosting-17077091/original/1f1844d0-e075-4ae1-bac4-c0f80d252b9c.jpeg ',
         preview: true
       },
 
       {
         spotId: 7,
-        url: 'https://a0.muscache.com/im/pictures/miso/Hosting-18994970/original/c7fc8d28-781e-4dc5-a95d-07924e8a2260.jpeg ',
+        url: 'https://a0.muscache.com/im/pictures/prohost-api/Hosting-17077091/original/db9776b6-d049-4b00-8888-aa4453f48413.jpeg ',
         preview: true
       },
 
@@ -319,7 +319,7 @@ module.exports = {
     ], {})
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     await queryInterface.bulkDelete('SpotImages', null, {})
   }
 };
