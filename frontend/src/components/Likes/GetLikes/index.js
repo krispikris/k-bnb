@@ -32,6 +32,15 @@ const GetLikes = () => {
                 <div className="all-likes-container">
                     {allLikes.map((user) => (
                         <div key={user.id} className="individual-like-container">
+                            <img
+                                className="liked-spot-card"
+                                src={spot?.previewImage || ""}
+                                onError={(e) =>
+                                (e.target.src =
+                                    "https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png")
+                                }
+                                alt="one-liked-spot-card"
+                            />
                             {/* <NavLink to={'/spot/${spot.id}'} */}
 
                         </div>
